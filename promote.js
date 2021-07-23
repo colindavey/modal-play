@@ -55,7 +55,8 @@ const asyncPromote = () => {
     })
 };
   
-const promote = async () => {
+const promote = async (event) => {
+    console.log(event)
     const value = await asyncPromote()
     document.getElementById("choice").innerHTML = value ? value : 'canceled';
 }
