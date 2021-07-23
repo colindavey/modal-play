@@ -11,11 +11,14 @@ const BLACK_KNIGHT = '\u265E'
 // const BLACK_PAWN = '\u265F'
 const color = 'w'
 
-const asyncPromote = () => {
+const asyncPromote = (x, y) => {
+    console.log(x, y)
     return new Promise(resolve => {
         const wrapper = document.querySelector('div.popup-box');
         const popup = document.createElement('div');
         popup.classList.add('promote');
+        popup.style.left = `${x.toString()}px`
+        popup.style.top = `${y.toString()}px`
         wrapper.appendChild(popup);
         
         const qBtn = document.createElement('button');
@@ -56,7 +59,6 @@ const asyncPromote = () => {
 };
   
 const promote = async (event) => {
-    console.log(event)
-    const value = await asyncPromote()
+    const value = await asyncPromote(event.clientX, event.clientY)
     document.getElementById("choice").innerHTML = value ? value : 'canceled';
 }
