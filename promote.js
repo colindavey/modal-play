@@ -17,6 +17,7 @@ const asyncPromote = (x, y) => {
     return new Promise(resolve => {
         const wrapper = document.querySelector('div.popup-box');
         const popup = document.createElement('div');
+        // popup.classList.add('w3-modal');
         popup.classList.add('promote');
         popup.style.left = `${x.toString()}px`
         popup.style.top = `${y.toString()}px`
@@ -27,6 +28,7 @@ const asyncPromote = (x, y) => {
         const bBtn = document.createElement('button');
         const nBtn = document.createElement('button');
         const cancelBtn = document.createElement('button');
+        // var outsideClick = false
 
         qBtn.textContent = WHITE_QUEEN;
         rBtn.textContent = WHITE_ROOK;
@@ -47,8 +49,15 @@ const asyncPromote = (x, y) => {
         popup.appendChild(cancelBtn);
 
         const onClick = pass => {
-        resolve(pass);
-        popup.remove();
+            console.log('internal onclick')
+            // if (outsideClick) {
+            //     console.log('outside')
+            //     outsideClick = false
+            // } else {
+                resolve(pass);
+                // window.removeEventListener('click')
+                popup.remove();
+            // }
         };
 
         qBtn.addEventListener('click', onClick.bind(null, 'q'));
@@ -56,6 +65,7 @@ const asyncPromote = (x, y) => {
         bBtn.addEventListener('click', onClick.bind(null, 'b'));
         nBtn.addEventListener('click', onClick.bind(null, 'n'));
         cancelBtn.addEventListener('click', onClick.bind(null, false));
+        // window.addEventListener('click', window.onClick.bind(console.log('bind')))
     })
 };
   

@@ -8,21 +8,20 @@
   <body>
 
     <div class="w3-container">
-      <h2>W3.CSS Modal</h2>
       <!-- <button onclick="document.getElementById('modal').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
-      <button onclick="getPromotion()" class="w3-button w3-black">Open Modal</button>
+      <button onclick="getPromotion()" class="w3-button w3-black">Promote</button>
       <button onclick="console.log('log')" class="w3-button w3-black">Console log</button>
 
       <div id="modal" class="w3-modal">
-        <div class="w3-modal-content" style="width: 245px">
+        <!-- <div class="w3-modal-content" style="width: 245px"> -->
           <div class="w3-container">
             <button id="queen" onclick="document.getElementById('modal').style.display='none'; promotion='Q'; console.log(promotion)"></button>
             <button id="rook" onclick="document.getElementById('modal').style.display='none'; promotion='R'; console.log(promotion)"></button>
             <button id="bishop" onclick="document.getElementById('modal').style.display='none'; promotion='B'; console.log(promotion)"></button>
             <button id="knight" onclick="document.getElementById('modal').style.display='none'; promotion='N'; console.log(promotion)"></button>
             <button id="cancel" onclick="document.getElementById('modal').style.display='none'; promotion='x'; console.log(promotion)">Cancel</button>
-        </div>
-        </div>
+          </div>
+        <!-- </div> -->
       </div>
     </div>
     <script>
