@@ -10,10 +10,10 @@ const BLACK_BISHOP = '\u265D'
 const BLACK_KNIGHT = '\u265E'
 // const BLACK_PAWN = '\u265F'
 const color = 'w'
-let modal = false
+let promoting = false
 
 const asyncPromote = (x, y) => {
-    modal = true
+    promoting = true
     return new Promise(resolve => {
         const wrapper = document.querySelector('div.popup-box');
         const popup = document.createElement('div');
@@ -60,9 +60,9 @@ const asyncPromote = (x, y) => {
 };
   
 const promote = async (event) => {
-    if (!modal) {
+    if (!promoting) {
         const value = await asyncPromote(event.clientX, event.clientY)
-        modal = false
+        promoting = false
         document.getElementById("choice").innerHTML = value ? value : 'canceled';
     }
 }
