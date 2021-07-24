@@ -1,18 +1,6 @@
-const WHITE_QUEEN = '\u2655'
-const WHITE_ROOK = '\u2656'
-const WHITE_BISHOP = '\u2657'
-const WHITE_KNIGHT = '\u2658'
-// const WHITE_PAWN = '\u2659'
-// const BLACK_KING = '\u265A'
-const BLACK_QUEEN = '\u265B'
-const BLACK_ROOK = '\u265C'
-const BLACK_BISHOP = '\u265D'
-const BLACK_KNIGHT = '\u265E'
-// const BLACK_PAWN = '\u265F'
-const color = 'w'
 let promoting = false
 
-const asyncPromote = (x, y) => {
+const asyncPromote = (x, y, color) => {
     promoting = true
     return new Promise(resolve => {
         const wrapper = document.querySelector('div.popup-box');
@@ -30,17 +18,17 @@ const asyncPromote = (x, y) => {
         const cancelBtn = document.createElement('button');
         // var outsideClick = false
 
-        qBtn.textContent = WHITE_QUEEN;
-        rBtn.textContent = WHITE_ROOK;
-        bBtn.textContent = WHITE_BISHOP;
-        nBtn.textContent = WHITE_KNIGHT;    
+        qBtn.innerHTML = WHITE_QUEEN;
+        rBtn.innerHTML = WHITE_ROOK;
+        bBtn.innerHTML = WHITE_BISHOP;
+        nBtn.innerHTML = WHITE_KNIGHT;    
         if (color === 'b') {
-            qBtn.textContent = BLACK_QUEEN;
-            rBtn.textContent = BLACK_ROOK;
-            bBtn.textContent = BLACK_BISHOP;
-            nBtn.textContent = BLACK_KNIGHT;    
+            qBtn.innerHTML = BLACK_QUEEN;
+            rBtn.innerHTML = BLACK_ROOK;
+            bBtn.innerHTML = BLACK_BISHOP;
+            nBtn.innerHTML = BLACK_KNIGHT;    
         }
-        cancelBtn.textContent = 'Cancel';
+        cancelBtn.innerHTML = 'Cancel';
 
         popup.appendChild(qBtn);
         popup.appendChild(rBtn);
@@ -69,10 +57,10 @@ const asyncPromote = (x, y) => {
     })
 };
   
-const promote = async (event) => {
+const promote = async (event, color='w') => {
     if (!promoting) {
-        const value = await asyncPromote(event.clientX, event.clientY)
+        const value = await asyncPromote(event.clientX, event.clientY, color)
         promoting = false
-        document.getElementById("choice").innerHTML = value ? value : 'canceled';
+        showChoice(value)
     }
 }
