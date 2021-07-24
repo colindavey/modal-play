@@ -1,4 +1,4 @@
-var promotion = ''
+let promotion = ''
 
 const promote = async (event, color='w') => {
     setPromoteButtons(

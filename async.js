@@ -1,5 +1,13 @@
 let promoting = false
 
+const promote = async (event, color='w') => {
+    if (!promoting) {
+        const value = await asyncPromote(event.clientX, event.clientY, color)
+        promoting = false
+        showChoice(value)
+    }
+}
+
 const asyncPromote = (x, y, color) => {
     promoting = true
     return new Promise(resolve => {
@@ -46,11 +54,3 @@ const asyncPromote = (x, y, color) => {
         // window.addEventListener('click', window.onClick.bind(console.log('bind')))
     })
 };
-  
-const promote = async (event, color='w') => {
-    if (!promoting) {
-        const value = await asyncPromote(event.clientX, event.clientY, color)
-        promoting = false
-        showChoice(value)
-    }
-}
