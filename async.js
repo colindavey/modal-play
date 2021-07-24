@@ -18,23 +18,13 @@ const asyncPromote = (x, y, color) => {
         const cancelBtn = document.createElement('button');
         // var outsideClick = false
 
-        qBtn.innerHTML = WHITE_QUEEN;
-        rBtn.innerHTML = WHITE_ROOK;
-        bBtn.innerHTML = WHITE_BISHOP;
-        nBtn.innerHTML = WHITE_KNIGHT;    
-        if (color === 'b') {
-            qBtn.innerHTML = BLACK_QUEEN;
-            rBtn.innerHTML = BLACK_ROOK;
-            bBtn.innerHTML = BLACK_BISHOP;
-            nBtn.innerHTML = BLACK_KNIGHT;    
-        }
-        cancelBtn.innerHTML = 'Cancel';
-
         popup.appendChild(qBtn);
         popup.appendChild(rBtn);
         popup.appendChild(bBtn);
         popup.appendChild(nBtn);
         popup.appendChild(cancelBtn);
+
+        setPromoteButtons(qBtn, rBtn, bBtn, nBtn, cancelBtn, color)
 
         const onClick = pass => {
             console.log('internal onclick')
