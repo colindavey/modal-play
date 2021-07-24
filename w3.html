@@ -1,25 +1,61 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<body>
+    <head>
+        <title>W3.CSS</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="w3.js"></script>
+    </head>
+    <body>
 
-<div class="w3-container">
-  <h2>W3.CSS Modal</h2>
-  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button>
+    <div class="w3-container">
+      <!-- <button onclick="document.getElementById('modal').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
+      <button onclick="getPromotion()" class="w3-button w3-black">Promote</button>
+      <button onclick="console.log('log')" class="w3-button w3-black">Console log</button>
 
-  <div id="id01" class="w3-modal">
-    <div class="w3-modal-content">
-      <div class="w3-container">
-        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-hide">&times;</span>
-        <button onclick="document.getElementById('id01').style.display='none'">close</button>
-        <p>Some text. Some text. Some text.</p>
-        <p>Some text. Some text. Some text.</p>
+      <div id="modal" class="w3-modal">
+        <!-- <div class="w3-modal-content" style="width: 245px"> -->
+          <div class="w3-container">
+            <button id="queen" onclick="document.getElementById('modal').style.display='none'; promotion='Q'; console.log(promotion)"></button>
+            <button id="rook" onclick="document.getElementById('modal').style.display='none'; promotion='R'; console.log(promotion)"></button>
+            <button id="bishop" onclick="document.getElementById('modal').style.display='none'; promotion='B'; console.log(promotion)"></button>
+            <button id="knight" onclick="document.getElementById('modal').style.display='none'; promotion='N'; console.log(promotion)"></button>
+            <button id="cancel" onclick="document.getElementById('modal').style.display='none'; promotion='x'; console.log(promotion)">Cancel</button>
+          </div>
+        <!-- </div> -->
       </div>
     </div>
-  </div>
-</div>
-            
-</body>
+    <script>
+      // const WHITE_KING = '\u2654'
+      const WHITE_QUEEN = '\u2655'
+      const WHITE_ROOK = '\u2656'
+      const WHITE_BISHOP = '\u2657'
+      const WHITE_KNIGHT = '\u2658'
+      // const WHITE_PAWN = '\u2659'
+      // const BLACK_KING = '\u265A'
+      const BLACK_QUEEN = '\u265B'
+      const BLACK_ROOK = '\u265C'
+      const BLACK_BISHOP = '\u265D'
+      const BLACK_KNIGHT = '\u265E'
+      // const BLACK_PAWN = '\u265F'
+      var promotion = ''
+      const color = 'w'
+      if (color === 'w') {
+        document.getElementById("queen").innerHTML = WHITE_QUEEN;
+        document.getElementById("rook").innerHTML = WHITE_ROOK;
+        document.getElementById("bishop").innerHTML = WHITE_BISHOP;
+        document.getElementById("knight").innerHTML = WHITE_KNIGHT;
+      } else {
+        document.getElementById("queen").innerHTML = BLACK_QUEEN;
+        document.getElementById("rook").innerHTML = BLACK_ROOK;
+        document.getElementById("bishop").innerHTML = BLACK_BISHOP;
+        document.getElementById("knight").innerHTML = BLACK_KNIGHT;
+      }
+      function getPromotion() {
+        document.getElementById('modal').style.display='block'
+        console.log('after')
+      }
+    </script>
+    
+  </body>
 </html>
