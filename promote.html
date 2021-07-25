@@ -3,19 +3,19 @@
     <head>
         <title>Async modal</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="async.css">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="promote.css">
     </head>
 
     <body>
-        <div class="w3-container">
-            <button onclick="promote(event)">Promote</button>
+        <div>
+            <button onclick="promoteShim(event)">Promote</button>
             <button onclick='console.log("log")'>Console log</button>
             <h1 id='choice'></h1>
-
-            <div class="popup-box"></div>
         </div>
+        <div class="popup-box"></div>
+
         <script src="common.js"></script>
-        <script src="async.js"></script>
+        <script src="promote.js"></script>
+        <script src="promoteShim.js"></script>
     </body>
 </html>
