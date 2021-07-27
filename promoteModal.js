@@ -1,7 +1,7 @@
 // Borrowed and modified from https://codepen.io/bjkim/pen/JjXKjvr
-// import styles from './async.css'
+// import styles from './promoteModal.css'
 
-const promote = (wrapper, x, y, color) => {
+const promoteModal = (wrapper, x, y, color) => {
     return new Promise(resolve => {
         // setting wrapper = document body allows items to be pressed
         // const wrapper = document.body
