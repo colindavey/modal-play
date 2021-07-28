@@ -34,10 +34,10 @@ const promoteModal = (wrapper, x, y, color) => {
             wrapper.classList.remove('modal');
         };
 
-        qBtn.addEventListener('click', onClick.bind(null, 'q'));
-        rBtn.addEventListener('click', onClick.bind(null, 'r'));
-        bBtn.addEventListener('click', onClick.bind(null, 'b'));
-        nBtn.addEventListener('click', onClick.bind(null, 'n'));
+        qBtn.addEventListener('click', onClick.bind(null, 'queen'));
+        rBtn.addEventListener('click', onClick.bind(null, 'rook'));
+        bBtn.addEventListener('click', onClick.bind(null, 'bishop'));
+        nBtn.addEventListener('click', onClick.bind(null, 'knight'));
         cancelBtn.addEventListener('click', onClick.bind(null, false));
     })
 };
